@@ -9,7 +9,6 @@ This project is a beginner-friendly, end-to-end SQL portfolio project designed t
 
 ---
 
-
 ## 📂 Database Schema & Tables
 
 ### 1. `books` Table
@@ -38,7 +37,6 @@ Stores transaction records for every book sold.
 7. **Large Orders (`WHERE`):** Filtered individual sales transactions where more than 3 units were sold.
 8. **Overall Inventory Performance (`SUM`):** Calculated the grand total number of books sold across all transactions.
 9. **Unsold Inventory Check (`LEFT JOIN`):** Checked for any books that have never recorded a sale.
-
 
 ---
 
