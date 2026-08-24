@@ -67,4 +67,52 @@ WHERE quantity_sold > 3;
 
 SELECT SUM(quantity_sold) AS grand_total_books_sold
 FROM sales;
+
+SELECT b.book_name
+FROM books b
+LEFT JOIN sales s ON b.book_id = s.book_id
+WHERE s.sale_id IS NULL;
+
+SELECT b.book_name, SUM(s.quantity_sold * b.price) AS total_revenue
+FROM books b
+JOIN sales s ON b.book_id = s.book_id
+GROUP BY b.book_name
+ORDER BY total_revenue DESC;
+
+SELECT book_name, price,
+    CASE 
+        WHEN price < 22.00 THEN 'Budget'
+        WHEN price BETWEEN 22.00 AND 28.00 THEN 'Moderate'
+        ELSE 'Premium'
+    END AS price_category
+FROM books;
+
+
+SELECT b.book_name, SUM(s.quantity_sold) AS total_sold
+FROM books b
+JOIN sales s ON b.book_id = s.book_id
+GROUP BY b.book_name
+ORDER BY total_sold DESC
+LIMIT 1;
+
+SELECT book_name, price
+FROM books
+WHERE price > (SELECT AVG(price) FROM books);
+
+
+SELECT s.sale_id, b.book_name, s.quantity_sold
+FROM sales s
+INNER JOIN books b 
+  ON s.book_id = b.book_id;
+
+SELECT b.book_name, s.sale_id, s.quantity_sold
+FROM books b
+LEFT JOIN sales s 
+  ON b.book_id = s.book_id;
+  
+
+SELECT s.sale_id, b.book_name, s.quantity_sold
+FROM sales s
+RIGHT JOIN books b 
+  ON s.book_id = b.book_id;
 */
