@@ -46,3 +46,4 @@ Stores transaction records for every book sold.
    ```sql
    CREATE DATABASE bookstore_db;
    USE bookstore_db;
+
